@@ -28,8 +28,14 @@
     </thead>
     <tr th:block th:each="event : ${events}">
         <td th:text="${event.getKey()}"></td>
-        <td th:if="${event.getValue() == null or event.getValue() == ''}">Description Not Yet Available</td>
-        <td th:text="${event.getValue()}"></td>
+
+        <th:block th:if="${event.getValue() == null or event.getValue() == ''}">
+            <td>Description Not Yet Available</td>
+        </th:block>
+
+        <th:block th:unless="${event.getValue() == null and event.getValue() == ''}">
+            <td th:text="${event.getValue()}"></td>
+        </th:block>
     </tr>
 </table>
 
