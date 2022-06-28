@@ -9,21 +9,12 @@
 <!--Example starter code did not have conditional below-->
 <p th:unless="${events} and ${events.size()}">No events!</p>
 
-
-
-<!--<ul>-->
-<!--    <th:block th:each="event : ${events}">-->
-<!--        <li th:text="${event}"></li>-->
-<!--    </th:block>-->
-<!--</ul>-->
-
-<!--Starter code for table below was actually unordered list above-->
-
 <table class="table table-striped">
     <thead>
         <tr>
             <th>Name</th>
             <th>Description</th>
+            <th>Location</th>
         </tr>
     </thead>
     <tr th:block th:each="event : ${events}">
@@ -36,6 +27,8 @@
         <th:block th:unless="${event.getValue() == null and event.getValue() == ''}">
             <td th:text="${event.getValue()}"></td>
         </th:block>
+
+        <td th:replace = "fragments :: eventLocation"></td>
     </tr>
 </table>
 
