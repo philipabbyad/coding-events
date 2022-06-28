@@ -23,10 +23,13 @@
     <thead>
         <tr>
             <th>Name</th>
+            <th>Description</th>
         </tr>
     </thead>
     <tr th:block th:each="event : ${events}">
-        <td th:text="${event}"></td>
+        <td th:text="${event.getKey()}"></td>
+        <td th:if="${event.getValue() == null or event.getValue() == ''}">Description Not Yet Available</td>
+        <td th:text="${event.getValue()}"></td>
     </tr>
 </table>
 
