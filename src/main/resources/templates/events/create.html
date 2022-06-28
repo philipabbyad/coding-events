@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
+<!--Example starter code did not have class in body element below-->
 <body class="container">
 
-<h1>Create Event</h1>
+<header th:replace="fragments :: header"></header>
 
-<nav th:replace="fragments :: navigation"></nav>
-
+<!--Example starter code did not have class attributes in elements below-->
 <form method="post" action="/events/create">
     <div class="form-group">
         <label>Name

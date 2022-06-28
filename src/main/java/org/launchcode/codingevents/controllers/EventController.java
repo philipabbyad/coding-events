@@ -19,19 +19,21 @@ public class EventController {
     // path is /events
     @GetMapping
     public String displayAllEvents(Model model) {
+        model.addAttribute("title", "All Events");
         model.addAttribute("events", events);
         return "events/index";
     }
 
     // path is /events/create
     @GetMapping("create")
-    public String renderCreateEventForm() {
+    public String displayCreateEventForm(Model model) {
+        model.addAttribute("title", "Create Event");
         return "events/create";
     }
 
     // path is /events/create (Ok to share path as above because they handle different types of requests)
     @PostMapping("create")
-    public String createEvent(@RequestParam String eventName) {
+    public String processCreateEventForm(@RequestParam String eventName) {
         events.add(eventName);
         // Non-specified redirect redirects user to root path of controller, which is /events in this case
         return "redirect:";

@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
+<!--Example starter code did not have class in body element below-->
 <body class="container">
 
-<h1>All Events</h1>
+<header th:replace="fragments :: header"></header>
 
-<nav th:replace="fragments :: navigation"></nav>
-
+<!--Example starter code did not have conditional below-->
 <p th:unless="${events} and ${events.size()}">No events!</p>
+
+
+
+<!--<ul>-->
+<!--    <th:block th:each="event : ${events}">-->
+<!--        <li th:text="${event}"></li>-->
+<!--    </th:block>-->
+<!--</ul>-->
+
+<!--Starter code for table below was actually unordered list above-->
 
 <table class="table table-striped">
     <thead>
