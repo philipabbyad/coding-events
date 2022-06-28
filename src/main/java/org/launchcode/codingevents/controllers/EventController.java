@@ -29,7 +29,7 @@ public class EventController {
         return "events/create";
     }
 
-    // path is /events/create (Ok to share path as above because they handle different types of requests
+    // path is /events/create (Ok to share path as above because they handle different types of requests)
     @PostMapping("create")
     public String createEvent(@RequestParam String eventName) {
         events.add(eventName);
