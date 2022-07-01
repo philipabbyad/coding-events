@@ -5,13 +5,17 @@
 
 <header th:replace="fragments :: header"></header>
 
-<p th:unless="${events} and ${events.size()}">No events!</p>
-
-<ul>
-    <th:block th:each="event : ${events}">
-        <li th:text="${event}"></li>
-    </th:block>
-</ul>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tr th:each="event : ${events}">
+<!--        Thymeleaf implicity uses the getter for name field here-->
+        <td th:text="${event.name}"></td>
+    </tr>
+</table>
 
 </body>
 </html>

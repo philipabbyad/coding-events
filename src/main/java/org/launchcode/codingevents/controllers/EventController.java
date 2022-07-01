@@ -1,5 +1,6 @@
 package org.launchcode.codingevents.controllers;
 
+import org.launchcode.codingevents.models.Event;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,7 @@ import java.util.List;
 @RequestMapping("events")
 public class EventController {
 
-    private static List<String> events = new ArrayList<>();
+    private static List<Event> events = new ArrayList<>();
 
     // path is /events
     @GetMapping
@@ -34,7 +35,7 @@ public class EventController {
     // path is /events/create (Ok to share path as above because they handle different types of requests)
     @PostMapping("create")
     public String processCreateEventForm(@RequestParam String eventName) {
-        events.add(eventName);
+        events.add(new Event(eventName));
         // Non-specified redirect redirects user to root path of controller, which is /events in this case
         return "redirect:";
     }
