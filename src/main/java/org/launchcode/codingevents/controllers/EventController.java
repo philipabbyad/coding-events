@@ -34,8 +34,8 @@ public class EventController {
 
     // path is /events/create (Ok to share path as above because they handle different types of requests)
     @PostMapping("create")
-    public String processCreateEventForm(@RequestParam String eventName) {
-        events.add(new Event(eventName));
+    public String processCreateEventForm(@RequestParam String eventName, @RequestParam String eventDescription) {
+        events.add(new Event(eventName, eventDescription));
         // Non-specified redirect redirects user to root path of controller, which is /events in this case
         return "redirect:";
     }
