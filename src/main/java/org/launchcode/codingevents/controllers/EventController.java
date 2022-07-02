@@ -50,4 +50,15 @@ public class EventController {
         return "redirect:";
     }
 
+    @GetMapping("edit/{eventId}")
+    public String displayEditFOrm(Model model, @PathVariable int eventId) {
+        //controller code
+    }
+
+    @PostMapping("edit")
+    public String processEditForm(int eventId, String name, String description) {
+        // controller code
+    }
+
+
 }
