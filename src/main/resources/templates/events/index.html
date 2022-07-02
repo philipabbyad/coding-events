@@ -15,7 +15,7 @@
     </thead>
     <tr th:each="event : ${events}">
         <td th:text="${event.id}"></td>
-<!--        Thymeleaf implicity uses the getter for name field here-->
+<!--        Thymeleaf implicitly uses the getter for name field here-->
         <td th:text="${event.name}"></td>
         <td th:text="${event.description}"></td>
     </tr>
