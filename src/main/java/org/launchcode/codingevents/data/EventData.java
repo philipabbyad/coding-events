@@ -4,25 +4,28 @@ package org.launchcode.codingevents.data;
 
 import org.launchcode.codingevents.models.Event;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 public class EventData {
 
-    // need a place to put events (data structure of some type) - main property
-    private static Map<Integer, Event> events = new HashMap<>();
+    private static final Map<Integer, Event> events = new HashMap<>();
 
-    // Behaviors:
+    public static Collection<Event> getAll() {
+        return events.values();
+    }
 
-    // Get all events
+    public static Event getById(Integer id) {
+        return events.get(id);
+    }
 
-    // Get single event
-
-    // Add an event
     public static void add(Event event) {
         events.put(event.getId(), event);
     }
 
-    // Remove and event
+    public static void remove(Integer id) {
+        events.remove(id);
+    }
 
 }
