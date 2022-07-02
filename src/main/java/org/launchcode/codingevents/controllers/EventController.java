@@ -38,7 +38,7 @@ public class EventController {
 
     @GetMapping("delete")
     public String renderDeleteEventForm(Model model) {
-        model.addAttribute("title", "Delete Event");
+        model.addAttribute("title", "Delete Events");
         model.addAttribute("events", EventData.getAll());
         return "events/delete";
     }
@@ -51,7 +51,6 @@ public class EventController {
                 EventData.remove(id);
             }
         }
-
         return "redirect:";
     }
 
