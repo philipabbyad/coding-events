@@ -53,16 +53,18 @@ public class EventController {
     @GetMapping("edit/{eventId}")
     public String displayEditForm(Model model, @PathVariable int eventId) {
         Event eventToEdit = EventData.getById(eventId);
-        model.addAttribute("title", "Edit Event");
+        model.addAttribute("eventToEdit", eventToEdit);
         String title = "Edit Event " + eventToEdit.getName() + " (id=" + eventToEdit.getId() + ")";
-        model.addAttribute("event", eventToEdit);
+        model.addAttribute("title", title);
+
         return "events/edit";
     }
 
+    /*
     @PostMapping("edit")
     public String processEditForm(int eventId, String name, String description) {
         // controller code
     }
-
+*/
 
 }
