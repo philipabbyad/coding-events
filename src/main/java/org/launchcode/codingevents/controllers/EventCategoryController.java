@@ -1,7 +1,6 @@
 package org.launchcode.codingevents.controllers;
 
 
-import jdk.javadoc.internal.tool.Messager;
 import org.launchcode.codingevents.data.EventCategoryRepository;
 import org.launchcode.codingevents.models.EventCategory;
 import org.springframework.beans.factory.annotation.Autowired;
