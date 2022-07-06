@@ -5,6 +5,7 @@ import org.launchcode.codingevents.data.EventRepository;
 import org.launchcode.codingevents.data.TagRepository;
 import org.launchcode.codingevents.models.Event;
 import org.launchcode.codingevents.models.EventCategory;
+import org.launchcode.codingevents.models.Tag;
 import org.launchcode.codingevents.models.dto.EventTagDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -116,8 +117,22 @@ public class EventController {
         model.addAttribute("event", event);
         model.addAttribute("eventTag", new EventTagDTO());
         return "events/add-tag.html";
+    }
 
-
+    @PostMapping("add-tag")
+    public String processAddTagForm(@ModelAttribute @Valid EventTagDTO eventTag,
+                                    Errors errors,
+                                    Model model){
+        if (!errors.hasErrors()) {
+            Event event = eventTag.getEvent();
+            Tag tag = eventTag.getTag();
+            if (event.getTags().contains(tag)) {
+                event.addTag(tag);
+                eventRepository.save(event);
+            }
+            return "redirect:detail?eventId=" + event.getId();
+        }
+        return "redirect:add-tag.html";
     }
 
 
