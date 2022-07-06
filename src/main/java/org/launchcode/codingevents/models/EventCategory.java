@@ -17,15 +17,11 @@ public class EventCategory {
     @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters.")
     private String name;
 
-    public EventCategory(String name) {
+    public EventCategory(@Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters.") String name) {
         this.name = name;
     }
 
     public EventCategory() {};
-
-    public int getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
@@ -33,6 +29,10 @@ public class EventCategory {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
     }
 
     @Override
