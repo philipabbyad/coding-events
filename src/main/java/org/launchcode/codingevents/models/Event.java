@@ -14,13 +14,6 @@ public class Event extends AbstractEntity{
     @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters.")
     private String name;
 
-    @Size(max = 500, message = "Description too long!")
-    private String description;
-
-    @NotBlank(message = "Email is required.")
-    @Email(message = "Invalid email. Try again.")
-    private String contactEmail;
-
     @ManyToOne
     @NotNull(message = "Category is required.")
     private EventCategory eventCategory;
