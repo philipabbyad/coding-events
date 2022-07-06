@@ -1,5 +1,6 @@
 package org.launchcode.codingevents.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -15,7 +16,8 @@ public class Event extends AbstractEntity{
     @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters.")
     private String name;
 
-    @OneToOne
+    //Cascade allows for whenever an event is saved, so is an eventdetails object
+    @OneToOne(cascade = CascadeType.ALL)
     //Validation annotations on EventDetails fields are not checked without this @Valid annotation
     @Valid
     @NotNull
