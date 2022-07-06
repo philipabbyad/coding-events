@@ -127,7 +127,7 @@ public class EventController {
         if (!errors.hasErrors()) {
             Event event = eventTag.getEvent();
             Tag tag = eventTag.getTag();
-            if (event.getTags().contains(tag)) {
+            if (!event.getTags().contains(tag)) {
                 event.addTag(tag);
                 eventRepository.save(event);
             }
