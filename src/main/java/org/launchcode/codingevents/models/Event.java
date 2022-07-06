@@ -25,6 +25,7 @@ public class Event extends AbstractEntity{
     @NotNull(message = "Category is required.")
     private EventCategory eventCategory;
 
+    //Do not need field of EVentCategory as parameters, will use model binding instead
     public Event(String name, EventCategory eventCategory) {
         this.name = name;
         this.eventCategory = eventCategory;
