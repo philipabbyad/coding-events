@@ -107,13 +107,14 @@ public class EventController {
         return "events/detail";
     }
 
+    @GetMapping("add-tag")
     public String displayAddTagForm(@RequestParam Integer eventId, Model model){
         Optional<Event> result = eventRepository.findById(eventId);
         Event event = result.get();
         model.addAttribute("title", "Add Tag to: " + event.getName());
         model.addAttribute("tags", tagRepository.findAll());
         model.addAttribute("event", event);
-        model.addAttribute(new EventTagDTO());
+        model.addAttribute("eventTag", new EventTagDTO());
         return "events/add-tag.html";
 
 
