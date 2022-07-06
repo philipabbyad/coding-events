@@ -116,7 +116,7 @@ public class EventController {
         model.addAttribute("tags", tagRepository.findAll());
         EventTagDTO eventTag = new EventTagDTO();
         eventTag.setEvent(event);
-        model.addAttribute("eventTag", new EventTagDTO());
+        model.addAttribute("eventTag", eventTag);
         return "events/add-tag.html";
     }
 
